@@ -566,6 +566,13 @@ export default function Portfolio() {
                 </div>
               </div>
 
+              <div className="flex flex-wrap gap-2">
+                {['Next.js 15', 'React 19', 'NestJS', 'TypeORM', 'PostgreSQL', 'Tailwind', 'AWS S3', 'Vercel', 'Docker'].map((tech) => (
+                  <span key={tech} className="text-xs text-sky-300 bg-sky-900/50 border border-sky-800 px-2 py-1 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Strategy Pattern Code Block */}
@@ -598,14 +605,6 @@ export default function Portfolio() {
 {'}'}</pre>
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mt-8">
-            {['Next.js 15', 'React 19', 'NestJS', 'TypeORM', 'PostgreSQL', 'Tailwind', 'AWS S3', 'Vercel'].map((tech) => (
-              <span key={tech} className="text-xs text-sky-300 bg-sky-900/50 border border-sky-800 px-2 py-1 rounded">
-                {tech}
-              </span>
-            ))}
           </div>
         </div>
       </section>
