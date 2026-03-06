@@ -302,7 +302,7 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">event_processor.go</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-<span className="text-slate-500">{`// Real-time event processing`}</span>{'\n'}
+<span className="text-slate-500">{/* Real-time event processing */}</span>{'\n'}
 <span className="text-sky-400">func</span> <span className="text-emerald-400">ProcessEvent</span>(ctx context.Context) {'{'}{'\n'}
 {'  '}event := <span className="text-sky-400">kafka.Consume</span>(ctx){'\n'}
 {'\n'}
@@ -408,13 +408,15 @@ export default function Portfolio() {
       </section>
 
       {/* Experience - Light */}
-      <section id="experience" className={`py-24 px-8 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm text-sky-600 tracking-widest uppercase mb-12 font-medium">{t.experienceTitle}</p>
+      <section id="experience" className={`py-24 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto px-8 mb-12">
+          <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">{t.experienceTitle}</p>
+        </div>
           
-          <div className="space-y-0">
-            {/* Cognativ - White */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 rounded-t-xl">
+        <div className="space-y-0">
+          {/* Cognativ - White */}
+          <div className="bg-slate-50">
+            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2025 — {t.present}</p>
               </div>
@@ -437,9 +439,11 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* 2U - Grey */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 bg-slate-100">
+          {/* 2U - Grey */}
+          <div className="bg-slate-200/70">
+            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019 — 2025</p>
                 <p className="text-xs text-slate-500">5+ {t.years}</p>
@@ -463,9 +467,11 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Aluar - White */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8">
+          {/* Aluar - White */}
+          <div className="bg-slate-50">
+            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019</p>
               </div>
@@ -479,9 +485,11 @@ export default function Portfolio() {
                 </ul>
               </div>
             </div>
+          </div>
 
-            {/* Fabri S.A. - Grey */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 bg-slate-100 rounded-b-xl">
+          {/* Fabri S.A. - Grey */}
+          <div className="bg-slate-200/70">
+            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2016 — 2019</p>
                 <p className="text-xs text-slate-500">3 {t.years}</p>
@@ -577,7 +585,7 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">payment_strategy.ts</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-<span className="text-slate-500">{`// Strategy Pattern`}</span>{'\n'}
+<span className="text-slate-500">{/* Strategy Pattern */}</span>{'\n'}
 <span className="text-sky-400">interface</span> <span className="text-emerald-400">PaymentProvider</span> {'{'}{'\n'}
 {'  '}<span className="text-amber-400">charge</span>(amount): Promise{'\n'}
 {'  '}<span className="text-amber-400">refund</span>(txId): Promise{'\n'}
