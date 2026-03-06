@@ -228,22 +228,22 @@ export default function Portfolio() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-50/90 backdrop-blur-sm border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-8 py-5 flex items-center justify-between">
-          <span className="text-sm font-medium tracking-wide">Sebastian Alvarez</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
+        <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
+          <span className="text-base font-semibold tracking-wide text-white">Sebastian Alvarez</span>
           <div className="flex items-center gap-6">
-            <a href="#experience" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">{t.experience}</a>
-            <a href="#projects" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">{t.projects}</a>
-            <a href="mailto:alvarez.sebastian605@gmail.com" className="text-sm text-slate-900 hover:text-sky-700 transition-colors font-medium">{t.contact}</a>
+            <a href="#experience" className="text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
+            <a href="#projects" className="text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
+            <a href="mailto:alvarez.sebastian605@gmail.com" className="text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
             
             {/* Language Toggle */}
-            <div className="flex items-center gap-1 ml-4 bg-slate-200 rounded-full p-1">
+            <div className="flex items-center gap-1 ml-4 bg-slate-700 rounded-full p-1">
               <button
                 onClick={() => setLang('en')}
                 className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
-                  lang === 'en' 
-                    ? 'bg-white text-slate-900 shadow-sm' 
-                    : 'text-slate-500 hover:text-slate-700'
+                  lang === 'en'
+                    ? 'bg-sky-500 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 EN
@@ -251,9 +251,9 @@ export default function Portfolio() {
               <button
                 onClick={() => setLang('es')}
                 className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
-                  lang === 'es' 
-                    ? 'bg-white text-slate-900 shadow-sm' 
-                    : 'text-slate-500 hover:text-slate-700'
+                  lang === 'es'
+                    ? 'bg-sky-500 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 ES
