@@ -229,18 +229,18 @@ export default function Portfolio() {
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-          <span className="text-base font-semibold tracking-wide text-white">Sebastian Alvarez</span>
-          <div className="flex items-center gap-6">
-            <a href="#experience" className="text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
-            <a href="#projects" className="text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
-            <a href="mailto:alvarez.sebastian605@gmail.com" className="text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
-            
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between">
+          <span className="text-sm sm:text-base font-semibold tracking-wide text-white">Sebastian Alvarez</span>
+          <div className="flex items-center gap-3 sm:gap-6">
+            <a href="#experience" className="hidden sm:inline text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
+            <a href="#projects" className="hidden sm:inline text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
+            <a href="mailto:alvarez.sebastian605@gmail.com" className="text-xs sm:text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
+
             {/* Language Toggle */}
-            <div className="flex items-center gap-1 ml-4 bg-slate-700 rounded-full p-1">
+            <div className="flex items-center gap-1 sm:ml-4 bg-slate-700 rounded-full p-1">
               <button
                 onClick={() => setLang('en')}
-                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
+                className={`px-2 sm:px-3 py-1 text-xs font-medium rounded-full transition-all ${
                   lang === 'en'
                     ? 'bg-sky-500 text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
@@ -250,7 +250,7 @@ export default function Portfolio() {
               </button>
               <button
                 onClick={() => setLang('es')}
-                className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
+                className={`px-2 sm:px-3 py-1 text-xs font-medium rounded-full transition-all ${
                   lang === 'es'
                     ? 'bg-sky-500 text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
@@ -264,21 +264,21 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero - Light with Code Block */}
-      <section className={`pt-40 pb-24 px-8 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section className={`pt-28 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-8 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
             <div>
               <p className="text-sm text-sky-600 tracking-widest uppercase mb-4 font-medium">{t.role}</p>
-              <h1 className="text-5xl md:text-6xl font-light leading-tight mb-8 tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-light leading-tight mb-6 sm:mb-8 tracking-tight">
                 {t.heroTitle1}<br />
                 <span className="text-slate-900">{t.heroTitle2}</span><br />
                 <span className="text-slate-400">{t.heroTitle3}</span>
               </h1>
-              <p 
-                className="text-lg text-slate-600 max-w-xl leading-relaxed mb-12"
+              <p
+                className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mb-8 sm:mb-12"
                 dangerouslySetInnerHTML={{ __html: t.heroDescription.replaceAll('<strong>', '<span class="text-slate-800 font-medium">').replaceAll('</strong>', '</span>') }}
               />
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm">
                 <a href="https://github.com/SebaJas" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-2 group">
                   <svg className="w-5 h-5 group-hover:text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                   GitHub
@@ -319,11 +319,11 @@ export default function Portfolio() {
       </section>
 
       {/* Technical Expertise - Dark with Architecture Diagram */}
-      <section className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section className={`py-16 sm:py-24 px-4 sm:px-8 bg-slate-900 text-white transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">{t.technicalExpertise}</p>
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <p className="text-sm text-sky-400 tracking-widest uppercase mb-8 sm:mb-12 font-medium">{t.technicalExpertise}</p>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Architecture Diagram - Left */}
             <div className="hidden lg:block order-1">
               <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
@@ -376,7 +376,7 @@ export default function Portfolio() {
 
             {/* Skills Grid - Right */}
             <div className="order-2">
-              <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-6 sm:gap-y-8">
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.languages}</h3>
                   <p className="text-slate-300">Go (primary), TypeScript, Python, PHP, SQL</p>
@@ -408,15 +408,15 @@ export default function Portfolio() {
       </section>
 
       {/* Experience - Light */}
-      <section id="experience" className={`py-24 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-6xl mx-auto px-8 mb-12">
+      <section id="experience" className={`py-16 sm:py-24 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12">
           <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">{t.experienceTitle}</p>
         </div>
           
         <div className="space-y-0">
           {/* Cognativ - Grey */}
           <div className="bg-slate-200/70">
-            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2025 — {t.present}</p>
               </div>
@@ -443,7 +443,7 @@ export default function Portfolio() {
 
           {/* 2U - White */}
           <div className="bg-slate-50">
-            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019 — 2025</p>
                 <p className="text-xs text-slate-500">5+ {t.years}</p>
@@ -471,7 +471,7 @@ export default function Portfolio() {
 
           {/* Aluar - Grey */}
           <div className="bg-slate-200/70">
-            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019</p>
               </div>
@@ -489,7 +489,7 @@ export default function Portfolio() {
 
           {/* Fabri S.A. - White */}
           <div className="bg-slate-50">
-            <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2016 — 2019</p>
                 <p className="text-xs text-slate-500">3 {t.years}</p>
@@ -516,11 +516,11 @@ export default function Portfolio() {
       </section>
 
       {/* Featured Project - Dark with Code Snippet */}
-      <section id="projects" className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section id="projects" className={`py-16 sm:py-24 px-4 sm:px-8 bg-slate-900 text-white transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">{t.featuredProject}</p>
-          
-          <div className="grid lg:grid-cols-[1fr_380px] gap-12 items-start">
+          <p className="text-sm text-sky-400 tracking-widest uppercase mb-8 sm:mb-12 font-medium">{t.featuredProject}</p>
+
+          <div className="grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-12 items-start">
             <div>
               <h3 className="text-2xl font-medium mb-2">VinilHub</h3>
               <p className="text-slate-400 mb-6">{t.vinilhubSubtitle}</p>
@@ -529,8 +529,8 @@ export default function Portfolio() {
                 {t.vinilhubDescription}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="bg-slate-800/50 p-4 sm:p-5 rounded-lg border border-slate-700">
                   <h4 className="text-xs text-sky-400 uppercase tracking-wider mb-3 font-medium">{t.architectureTitle}</h4>
                   <ul className="space-y-2 text-slate-300 text-sm">
                     <li className="flex items-start gap-2">
@@ -547,7 +547,7 @@ export default function Portfolio() {
                     </li>
                   </ul>
                 </div>
-                <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
+                <div className="bg-slate-800/50 p-4 sm:p-5 rounded-lg border border-slate-700">
                   <h4 className="text-xs text-sky-400 uppercase tracking-wider mb-3 font-medium">{t.featuresTitle}</h4>
                   <ul className="space-y-2 text-slate-300 text-sm">
                     <li className="flex items-start gap-2">
@@ -610,11 +610,11 @@ export default function Portfolio() {
       </section>
 
       {/* Key Achievements - Light */}
-      <section className={`py-24 px-8 bg-slate-50 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section className={`py-16 sm:py-24 px-4 sm:px-8 bg-slate-50 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm text-sky-600 tracking-widest uppercase mb-12 font-medium">{t.keyAchievements}</p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+          <p className="text-sm text-sky-600 tracking-widest uppercase mb-8 sm:mb-12 font-medium">{t.keyAchievements}</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="border-l-2 border-sky-500 pl-6">
               <h3 className="font-medium mb-2 text-slate-900">{t.achievement1Title}</h3>
               <p className="text-sm text-slate-600">{t.achievement1Desc}</p>
@@ -636,11 +636,11 @@ export default function Portfolio() {
       </section>
 
       {/* Education - Dark */}
-      <section className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section className={`py-16 sm:py-24 px-4 sm:px-8 bg-slate-900 text-white transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">{t.education}</p>
-          
-          <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+          <p className="text-sm text-sky-400 tracking-widest uppercase mb-8 sm:mb-12 font-medium">{t.education}</p>
+
+          <div className="grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
             <div>
               <p className="text-sm text-slate-400">2008 — 2015</p>
             </div>
@@ -654,7 +654,7 @@ export default function Portfolio() {
       </section>
 
       {/* Footer - Light */}
-      <footer className="py-16 px-8 bg-slate-100 border-t border-slate-200">
+      <footer className="py-12 sm:py-16 px-4 sm:px-8 bg-slate-100 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div>
