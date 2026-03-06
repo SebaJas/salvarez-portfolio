@@ -232,9 +232,9 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between">
           <span className="text-sm sm:text-base font-semibold tracking-wide text-white">Sebastian Alvarez</span>
           <div className="flex items-center gap-3 sm:gap-6">
-            <a href="#experience" className="hidden sm:inline text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
-            <a href="#projects" className="hidden sm:inline text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
-            <a href="mailto:alvarez.sebastian605@gmail.com" className="text-xs sm:text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
+            <a href="#experience" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
+            <a href="#projects" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
+            <a href="#contact" className="text-xs sm:text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
 
             {/* Language Toggle */}
             <div className="flex items-center gap-1 sm:ml-4 bg-slate-700 rounded-full p-1">
@@ -654,7 +654,7 @@ export default function Portfolio() {
       </section>
 
       {/* Footer - Light */}
-      <footer className="py-12 sm:py-16 px-4 sm:px-8 bg-slate-100 border-t border-slate-200">
+      <footer id="contact" className="py-12 sm:py-16 px-4 sm:px-8 bg-slate-100 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div>
