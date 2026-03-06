@@ -276,7 +276,7 @@ export default function Portfolio() {
               </h1>
               <p 
                 className="text-lg text-slate-600 max-w-xl leading-relaxed mb-12"
-                dangerouslySetInnerHTML={{ __html: t.heroDescription.replace(/<strong>/g, '<span class="text-slate-800 font-medium">').replace(/<\/strong>/g, '</span>') }}
+                dangerouslySetInnerHTML={{ __html: t.heroDescription.replaceAll('<strong>', '<span class="text-slate-800 font-medium">').replaceAll('</strong>', '</span>') }}
               />
               <div className="flex items-center gap-6 text-sm">
                 <a href="https://github.com/SebaJas" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-2 group">
@@ -302,7 +302,7 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">event_processor.go</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-<span className="text-slate-500">// Real-time event processing</span>{'\n'}
+<span className="text-slate-500">{`// Real-time event processing`}</span>{'\n'}
 <span className="text-sky-400">func</span> <span className="text-emerald-400">ProcessEvent</span>(ctx context.Context) {'{'}{'\n'}
 {'  '}event := <span className="text-sky-400">kafka.Consume</span>(ctx){'\n'}
 {'\n'}
@@ -412,9 +412,9 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-600 tracking-widest uppercase mb-12 font-medium">{t.experienceTitle}</p>
           
-          <div className="space-y-16">
-            {/* Cognativ */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+          <div className="space-y-0">
+            {/* Cognativ - White */}
+            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 rounded-t-xl">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2025 — {t.present}</p>
               </div>
@@ -438,8 +438,8 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* 2U */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            {/* 2U - Grey */}
+            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 bg-slate-100">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019 — 2025</p>
                 <p className="text-xs text-slate-500">5+ {t.years}</p>
@@ -464,8 +464,8 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Aluar */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            {/* Aluar - White */}
+            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019</p>
               </div>
@@ -480,8 +480,8 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Fabri S.A. */}
-            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
+            {/* Fabri S.A. - Grey */}
+            <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 p-8 bg-slate-100 rounded-b-xl">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2016 — 2019</p>
                 <p className="text-xs text-slate-500">3 {t.years}</p>
@@ -577,7 +577,7 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">payment_strategy.ts</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-<span className="text-slate-500">// Strategy Pattern</span>{'\n'}
+<span className="text-slate-500">{`// Strategy Pattern`}</span>{'\n'}
 <span className="text-sky-400">interface</span> <span className="text-emerald-400">PaymentProvider</span> {'{'}{'\n'}
 {'  '}<span className="text-amber-400">charge</span>(amount): Promise{'\n'}
 {'  '}<span className="text-amber-400">refund</span>(txId): Promise{'\n'}
