@@ -14,7 +14,7 @@ export default function Portfolio() {
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-50/90 backdrop-blur-sm border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-8 py-5 flex items-center justify-between">
           <span className="text-sm font-medium tracking-wide">Sebastian Alvarez</span>
           <div className="flex items-center gap-8">
             <a href="#experience" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Experience</a>
@@ -25,16 +25,17 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero - Light with Code Block */}
-      <section className={`pt-40 pb-24 px-6 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className={`pt-40 pb-24 px-8 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
             <div>
               <p className="text-sm text-sky-600 tracking-widest uppercase mb-4 font-medium">Senior Software Engineer</p>
               <h1 className="text-5xl md:text-6xl font-light leading-tight mb-8 tracking-tight">
-                Building production systems<br />
+                Building<br />
+                <span className="text-slate-900">Production Systems</span><br />
                 <span className="text-slate-400">at scale.</span>
               </h1>
-              <p className="text-lg text-slate-600 max-w-2xl leading-relaxed mb-12">
+              <p className="text-lg text-slate-600 max-w-xl leading-relaxed mb-12">
                 8+ years of experience in <span className="text-slate-800 font-medium">Go</span> and distributed architectures. Specialized in <span className="text-slate-800 font-medium">CQRS</span>, <span className="text-slate-800 font-medium">DDD</span>, and event-driven design. Based in Argentina, working remotely with US companies since 2019.
               </p>
               <div className="flex items-center gap-6 text-sm">
@@ -60,34 +61,108 @@ export default function Portfolio() {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   <span className="ml-2 text-slate-500 text-xs font-mono">event_processor.go</span>
                 </div>
-                <pre className="text-sm font-mono leading-relaxed overflow-x-auto">
-                  <code>
-                    <span className="text-slate-500">// Real-time event processing</span>{'\n'}
-                    <span className="text-sky-400">func</span> <span className="text-emerald-400">ProcessEvent</span>(ctx context.Context) {'{'}{'\n'}
-                    {'  '}event := <span className="text-sky-400">kafka.Consume</span>(ctx){'\n'}
-                    {'\n'}
-                    {'  '}<span className="text-sky-400">if</span> event.Latency {'<'} <span className="text-amber-400">100</span>*time.Millisecond {'{'}{'\n'}
-                    {'    '}<span className="text-emerald-400">TriggerAlert</span>(event){'\n'}
-                    {'  '}{'}'}{'\n'}
-                    {'\n'}
-                    {'  '}<span className="text-emerald-400">iot.Publish</span>(event){'\n'}
-                    {'}'}{'\n'}
-                  </code>
-                </pre>
+                <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
+<span className="text-slate-500">// Real-time event processing</span>{'\n'}
+<span className="text-sky-400">func</span> <span className="text-emerald-400">ProcessEvent</span>(ctx context.Context) {'{'}{'\n'}
+{'  '}event := <span className="text-sky-400">kafka.Consume</span>(ctx){'\n'}
+{'\n'}
+{'  '}<span className="text-sky-400">if</span> event.Latency {'<'} <span className="text-amber-400">100</span>*time.Millisecond {'{'}{'\n'}
+{'    '}<span className="text-emerald-400">TriggerAlert</span>(event){'\n'}
+{'  '}{'}'}{'\n'}
+{'\n'}
+{'  '}<span className="text-emerald-400">iot.Publish</span>(event){'\n'}
+{'}'}</pre>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Expertise - Dark with Terminal */}
-      <section className={`py-24 px-6 bg-slate-900 text-white transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
-            <div>
-              <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">Technical Expertise</p>
-              
-              <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
+      {/* Technical Expertise - Dark with Architecture Diagram */}
+      <section className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">Technical Expertise</p>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Architecture Diagram - Left */}
+            <div className="hidden lg:block order-1">
+              <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700">
+                <p className="text-xs text-sky-400 uppercase tracking-wider mb-6 font-medium text-center">Event-Driven Architecture</p>
+                
+                {/* Diagram */}
+                <div className="space-y-4">
+                  {/* Top Layer - Client */}
+                  <div className="flex justify-center">
+                    <div className="bg-slate-700 px-6 py-3 rounded-lg border border-slate-600 text-center">
+                      <p className="text-xs text-slate-400">Client</p>
+                      <p className="text-sm text-slate-200 font-medium">Next.js / React</p>
+                    </div>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div className="flex justify-center">
+                    <div className="text-sky-400 text-2xl">↓</div>
+                  </div>
+                  
+                  {/* API Gateway */}
+                  <div className="flex justify-center">
+                    <div className="bg-sky-900/50 px-6 py-3 rounded-lg border border-sky-700 text-center">
+                      <p className="text-xs text-sky-400">API Gateway</p>
+                      <p className="text-sm text-slate-200 font-medium">Go / Fiber</p>
+                    </div>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div className="flex justify-center">
+                    <div className="text-sky-400 text-2xl">↓</div>
+                  </div>
+                  
+                  {/* Message Broker */}
+                  <div className="flex justify-center">
+                    <div className="bg-emerald-900/50 px-6 py-3 rounded-lg border border-emerald-700 text-center">
+                      <p className="text-xs text-emerald-400">Message Broker</p>
+                      <p className="text-sm text-slate-200 font-medium">Kafka / SQS</p>
+                    </div>
+                  </div>
+                  
+                  {/* Arrow Split */}
+                  <div className="flex justify-center gap-24">
+                    <div className="text-sky-400 text-2xl">↙</div>
+                    <div className="text-sky-400 text-2xl">↘</div>
+                  </div>
+                  
+                  {/* Bottom Layer - Services */}
+                  <div className="flex justify-between gap-4">
+                    <div className="bg-slate-700 px-4 py-3 rounded-lg border border-slate-600 text-center flex-1">
+                      <p className="text-xs text-slate-400">Command</p>
+                      <p className="text-sm text-slate-200 font-medium">Write Service</p>
+                    </div>
+                    <div className="bg-slate-700 px-4 py-3 rounded-lg border border-slate-600 text-center flex-1">
+                      <p className="text-xs text-slate-400">Query</p>
+                      <p className="text-sm text-slate-200 font-medium">Read Service</p>
+                    </div>
+                  </div>
+                  
+                  {/* Arrows to DB */}
+                  <div className="flex justify-between px-12">
+                    <div className="text-sky-400 text-2xl">↓</div>
+                    <div className="text-sky-400 text-2xl">↓</div>
+                  </div>
+                  
+                  {/* Database Layer */}
+                  <div className="flex justify-center">
+                    <div className="bg-amber-900/50 px-6 py-3 rounded-lg border border-amber-700 text-center">
+                      <p className="text-xs text-amber-400">Data Store</p>
+                      <p className="text-sm text-slate-200 font-medium">PostgreSQL / Redis</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Skills Grid - Right */}
+            <div className="order-2">
+              <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">Languages</h3>
                   <p className="text-slate-300">Go (primary), TypeScript, Python, PHP, SQL</p>
@@ -114,32 +189,13 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-
-            {/* Terminal - Desktop Only */}
-            <div className="hidden lg:block">
-              <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 shadow-xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="ml-2 text-slate-500 text-xs font-mono">terminal</span>
-                </div>
-                <div className="font-mono text-xs space-y-2">
-                  <div><span className="text-emerald-400">$</span> <span className="text-slate-300">go build -o server</span></div>
-                  <div><span className="text-emerald-400">$</span> <span className="text-slate-300">docker compose up -d</span></div>
-                  <div><span className="text-emerald-400">$</span> <span className="text-slate-300">kubectl apply -f deploy/</span></div>
-                  <div className="text-sky-400">✓ Deployed to production</div>
-                  <div><span className="text-emerald-400">$</span> <span className="text-slate-500 animate-pulse">_</span></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Experience - Light */}
-      <section id="experience" className={`py-24 px-6 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
+      <section id="experience" className={`py-24 px-8 bg-slate-50 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-600 tracking-widest uppercase mb-12 font-medium">Experience</p>
           
           <div className="space-y-16">
@@ -238,11 +294,11 @@ export default function Portfolio() {
       </section>
 
       {/* Featured Project - Dark with Code Snippet */}
-      <section id="projects" className={`py-24 px-6 bg-slate-900 text-white transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
+      <section id="projects" className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">Featured Project</p>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-2xl font-medium mb-2">VinilHub</h3>
               <p className="text-slate-400 mb-6">Argentina's first specialized vinyl marketplace</p>
@@ -251,25 +307,38 @@ export default function Portfolio() {
                 Complete marketplace connecting record stores, collectors, and buyers with specialized features including vinyl grading systems (Mint, Near Mint, VG+), Discogs catalog integration, and store storefronts.
               </p>
 
-              <div className="space-y-6 mb-8">
+              <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
                   <h4 className="text-xs text-sky-400 uppercase tracking-wider mb-3 font-medium">Architecture</h4>
                   <ul className="space-y-2 text-slate-300 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="text-sky-400 mt-0.5">→</span>
-                      <span>Next.js 15 monorepo with Turborepo</span>
+                      <span>Next.js 15 + Turborepo</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-sky-400 mt-0.5">→</span>
-                      <span>NestJS backend with TypeORM</span>
+                      <span>NestJS + TypeORM</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-sky-400 mt-0.5">→</span>
-                      <span>JWT auth with refresh token rotation</span>
+                      <span>JWT + Token Rotation</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
+                  <h4 className="text-xs text-sky-400 uppercase tracking-wider mb-3 font-medium">Features</h4>
+                  <ul className="space-y-2 text-slate-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-sky-400 mt-0.5">→</span>
+                      <span>4-tier subscriptions</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-sky-400 mt-0.5">→</span>
-                      <span>Strategy Pattern for payment providers</span>
+                      <span>3 payment providers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-sky-400 mt-0.5">→</span>
+                      <span>RSC + ISR</span>
                     </li>
                   </ul>
                 </div>
@@ -293,50 +362,26 @@ export default function Portfolio() {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   <span className="ml-2 text-slate-500 text-xs font-mono">payment_strategy.ts</span>
                 </div>
-                <pre className="text-sm font-mono leading-relaxed overflow-x-auto">
-                  <code>
-                    <span className="text-slate-500">// Strategy Pattern</span>{'\n'}
-                    <span className="text-sky-400">interface</span> <span className="text-emerald-400">PaymentProvider</span> {'{'}{'\n'}
-                    {'  '}<span className="text-amber-400">charge</span>(amount: number): Promise{'{'}Result{'}'}{'\n'}
-                    {'  '}<span className="text-amber-400">refund</span>(txId: string): Promise{'{'}Result{'}'}{'\n'}
-                    {'}'}{'\n'}
-                    {'\n'}
-                    <span className="text-sky-400">class</span> <span className="text-emerald-400">PaymentService</span> {'{'}{'\n'}
-                    {'  '}<span className="text-sky-400">constructor</span>({'\n'}
-                    {'    '}<span className="text-sky-400">private</span> provider: PaymentProvider{'\n'}
-                    {'  '}) {'{'}{'}'}{'\n'}
-                    {'\n'}
-                    {'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">process</span>(order: Order) {'{'}{'\n'}
-                    {'    '}<span className="text-sky-400">return</span> <span className="text-sky-400">this</span>.provider.charge({'\n'}
-                    {'      '}order.total{'\n'}
-                    {'    '}){'\n'}
-                    {'  '}{'}'}{'\n'}
-                    {'}'}{'\n'}
-                  </code>
-                </pre>
-              </div>
-
-              {/* Features List Below Code */}
-              <div className="mt-6 bg-slate-800/50 p-5 rounded-lg border border-slate-700">
-                <h4 className="text-xs text-sky-400 uppercase tracking-wider mb-3 font-medium">Features</h4>
-                <ul className="space-y-2 text-slate-300 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-sky-400 mt-0.5">→</span>
-                    <span>4-tier subscription system</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-sky-400 mt-0.5">→</span>
-                    <span>3 payment providers (MercadoPago, Rebill, PayPal)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-sky-400 mt-0.5">→</span>
-                    <span>React Server Components + ISR</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-sky-400 mt-0.5">→</span>
-                    <span>SEO with JSON-LD structured data</span>
-                  </li>
-                </ul>
+                <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
+<span className="text-slate-500">// Strategy Pattern for Payments</span>{'\n'}
+<span className="text-sky-400">interface</span> <span className="text-emerald-400">PaymentProvider</span> {'{'}{'\n'}
+{'  '}<span className="text-amber-400">charge</span>(amount: number): Promise{'<'}Result{'>'}{'\n'}
+{'  '}<span className="text-amber-400">refund</span>(txId: string): Promise{'<'}Result{'>'}{'\n'}
+{'}'}{'\n'}
+{'\n'}
+<span className="text-sky-400">class</span> <span className="text-emerald-400">MercadoPago</span> <span className="text-sky-400">implements</span> PaymentProvider {'{'}{'\n'}
+{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">charge</span>(amount: number) {'{'}{'\n'}
+{'    '}<span className="text-sky-400">return</span> <span className="text-sky-400">this</span>.api.createPayment(amount){'\n'}
+{'  '}{'}'}{'\n'}
+{'}'}{'\n'}
+{'\n'}
+<span className="text-sky-400">class</span> <span className="text-emerald-400">PaymentService</span> {'{'}{'\n'}
+{'  '}<span className="text-sky-400">constructor</span>(<span className="text-sky-400">private</span> provider: PaymentProvider) {'{'}{'}'}{'\n'}
+{'\n'}
+{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">process</span>(order: Order) {'{'}{'\n'}
+{'    '}<span className="text-sky-400">return this</span>.provider.charge(order.total){'\n'}
+{'  '}{'}'}{'\n'}
+{'}'}</pre>
               </div>
             </div>
           </div>
@@ -344,8 +389,8 @@ export default function Portfolio() {
       </section>
 
       {/* Key Achievements - Light */}
-      <section className={`py-24 px-6 bg-slate-50 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
+      <section className={`py-24 px-8 bg-slate-50 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-600 tracking-widest uppercase mb-12 font-medium">Key Achievements</p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -370,8 +415,8 @@ export default function Portfolio() {
       </section>
 
       {/* Education - Dark */}
-      <section className={`py-24 px-6 bg-slate-900 text-white transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-5xl mx-auto">
+      <section className={`py-24 px-8 bg-slate-900 text-white transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">Education</p>
           
           <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
@@ -388,8 +433,8 @@ export default function Portfolio() {
       </section>
 
       {/* Footer - Light */}
-      <footer className="py-16 px-6 bg-slate-100 border-t border-slate-200">
-        <div className="max-w-5xl mx-auto">
+      <footer className="py-16 px-8 bg-slate-100 border-t border-slate-200">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div>
               <h3 className="text-lg font-medium mb-2 text-slate-900">Let's connect</h3>
