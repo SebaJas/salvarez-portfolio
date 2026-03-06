@@ -232,8 +232,8 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between">
           <a href="#top" className="text-sm sm:text-base font-semibold tracking-wide text-white hover:text-sky-400 transition-colors"><span className="sm:hidden">SA</span><span className="hidden sm:inline">Sebastian Alvarez</span></a>
           <div className="flex items-center gap-3 sm:gap-6">
-            <a href="#experience" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
-            <a href="#projects" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
+            <a href="#experience" className="text-xs sm:text-sm text-white hover:text-sky-400 transition-colors">{t.experience}</a>
+            <a href="#projects" className="text-xs sm:text-sm text-white hover:text-sky-400 transition-colors">{t.projects}</a>
             <a href="#contact" className="text-xs sm:text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
 
             {/* Language Toggle */}
