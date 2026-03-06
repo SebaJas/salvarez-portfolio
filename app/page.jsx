@@ -276,7 +276,7 @@ export default function Portfolio() {
               </h1>
               <p 
                 className="text-lg text-slate-600 max-w-xl leading-relaxed mb-12"
-                dangerouslySetInnerHTML={{ __html: t.heroDescription.replaceAll('<strong>', '<span class="text-slate-800 font-medium">').replaceAll('</strong>', '</span>') }}
+                dangerouslySetInnerHTML={{ __html: t.heroDescription.replace(/<strong>/g, '<span class="text-slate-800 font-medium">').replace(/<\/strong>/g, '</span>') }}
               />
               <div className="flex items-center gap-6 text-sm">
                 <a href="https://github.com/SebaJas" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-2 group">
@@ -302,7 +302,7 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">event_processor.go</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-{/* Real-time event processing */}
+<span className="text-slate-500">// Real-time event processing</span>{'\n'}
 <span className="text-sky-400">func</span> <span className="text-emerald-400">ProcessEvent</span>(ctx context.Context) {'{'}{'\n'}
 {'  '}event := <span className="text-sky-400">kafka.Consume</span>(ctx){'\n'}
 {'\n'}
@@ -326,74 +326,48 @@ export default function Portfolio() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Architecture Diagram - Left */}
             <div className="hidden lg:block order-1">
-              <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700">
-                <p className="text-xs text-sky-400 uppercase tracking-wider mb-6 font-medium text-center">{t.eventDrivenArch}</p>
+              <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                <p className="text-xs text-sky-400 uppercase tracking-wider mb-4 font-medium text-center">{t.eventDrivenArch}</p>
                 
-                {/* Diagram */}
-                <div className="space-y-4">
-                  {/* Top Layer - Client */}
-                  <div className="flex justify-center">
-                    <div className="bg-slate-700 px-6 py-3 rounded-lg border border-slate-600 text-center">
+                {/* Diagram - Compact */}
+                <div className="space-y-2">
+                  {/* Top Row: Client -> API Gateway -> Broker */}
+                  <div className="flex items-center justify-center gap-3">
+                    <div className="bg-slate-700 px-3 py-2 rounded-lg border border-slate-600 text-center">
                       <p className="text-xs text-slate-400">{t.client}</p>
-                      <p className="text-sm text-slate-200 font-medium">Next.js / React</p>
+                      <p className="text-xs text-slate-200 font-medium">Next.js</p>
                     </div>
-                  </div>
-                  
-                  {/* Arrow */}
-                  <div className="flex justify-center">
-                    <div className="text-sky-400 text-2xl">↓</div>
-                  </div>
-                  
-                  {/* API Gateway */}
-                  <div className="flex justify-center">
-                    <div className="bg-sky-900/50 px-6 py-3 rounded-lg border border-sky-700 text-center">
+                    <span className="text-sky-400">→</span>
+                    <div className="bg-sky-900/50 px-3 py-2 rounded-lg border border-sky-700 text-center">
                       <p className="text-xs text-sky-400">{t.apiGateway}</p>
-                      <p className="text-sm text-slate-200 font-medium">Go / Fiber</p>
+                      <p className="text-xs text-slate-200 font-medium">Go / Fiber</p>
                     </div>
-                  </div>
-                  
-                  {/* Arrow */}
-                  <div className="flex justify-center">
-                    <div className="text-sky-400 text-2xl">↓</div>
-                  </div>
-                  
-                  {/* Message Broker */}
-                  <div className="flex justify-center">
-                    <div className="bg-emerald-900/50 px-6 py-3 rounded-lg border border-emerald-700 text-center">
+                    <span className="text-sky-400">→</span>
+                    <div className="bg-emerald-900/50 px-3 py-2 rounded-lg border border-emerald-700 text-center">
                       <p className="text-xs text-emerald-400">{t.messageBroker}</p>
-                      <p className="text-sm text-slate-200 font-medium">Kafka / SQS</p>
+                      <p className="text-xs text-slate-200 font-medium">Kafka</p>
                     </div>
                   </div>
                   
-                  {/* Arrow Split */}
-                  <div className="flex justify-center gap-24">
-                    <div className="text-sky-400 text-2xl">↙</div>
-                    <div className="text-sky-400 text-2xl">↘</div>
-                  </div>
-                  
-                  {/* Bottom Layer - Services */}
-                  <div className="flex justify-between gap-4">
-                    <div className="bg-slate-700 px-4 py-3 rounded-lg border border-slate-600 text-center flex-1">
-                      <p className="text-xs text-slate-400">{t.command}</p>
-                      <p className="text-sm text-slate-200 font-medium">{t.writeService}</p>
-                    </div>
-                    <div className="bg-slate-700 px-4 py-3 rounded-lg border border-slate-600 text-center flex-1">
-                      <p className="text-xs text-slate-400">{t.query}</p>
-                      <p className="text-sm text-slate-200 font-medium">{t.readService}</p>
-                    </div>
-                  </div>
-                  
-                  {/* Arrows to DB */}
-                  <div className="flex justify-between px-12">
-                    <div className="text-sky-400 text-2xl">↓</div>
-                    <div className="text-sky-400 text-2xl">↓</div>
-                  </div>
-                  
-                  {/* Database Layer */}
+                  {/* Arrow down */}
                   <div className="flex justify-center">
-                    <div className="bg-amber-900/50 px-6 py-3 rounded-lg border border-amber-700 text-center">
+                    <div className="text-sky-400 text-lg">↓</div>
+                  </div>
+                  
+                  {/* Bottom Row: Command / Query Services + DB */}
+                  <div className="flex items-center justify-center gap-3">
+                    <div className="bg-slate-700 px-3 py-2 rounded-lg border border-slate-600 text-center">
+                      <p className="text-xs text-slate-400">{t.command}</p>
+                      <p className="text-xs text-slate-200 font-medium">{t.writeService}</p>
+                    </div>
+                    <div className="bg-slate-700 px-3 py-2 rounded-lg border border-slate-600 text-center">
+                      <p className="text-xs text-slate-400">{t.query}</p>
+                      <p className="text-xs text-slate-200 font-medium">{t.readService}</p>
+                    </div>
+                    <span className="text-sky-400">→</span>
+                    <div className="bg-amber-900/50 px-3 py-2 rounded-lg border border-amber-700 text-center">
                       <p className="text-xs text-amber-400">{t.dataStore}</p>
-                      <p className="text-sm text-slate-200 font-medium">PostgreSQL / Redis</p>
+                      <p className="text-xs text-slate-200 font-medium">PostgreSQL</p>
                     </div>
                   </div>
                 </div>
@@ -538,7 +512,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <p className="text-sm text-sky-400 tracking-widest uppercase mb-12 font-medium">{t.featuredProject}</p>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-[1fr_380px] gap-12 items-start">
             <div>
               <h3 className="text-2xl font-medium mb-2">VinilHub</h3>
               <p className="text-slate-400 mb-6">{t.vinilhubSubtitle}</p>
@@ -585,7 +559,7 @@ export default function Portfolio() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {['Next.js 15', 'React 19', 'NestJS', 'TypeORM', 'PostgreSQL', 'Tailwind CSS', 'AWS S3', 'Vercel'].map((tech) => (
+                {['Next.js 15', 'React 19', 'NestJS', 'TypeORM', 'PostgreSQL', 'Tailwind', 'AWS S3', 'Vercel'].map((tech) => (
                   <span key={tech} className="text-xs text-sky-300 bg-sky-900/50 border border-sky-800 px-2 py-1 rounded">
                     {tech}
                   </span>
@@ -603,23 +577,22 @@ export default function Portfolio() {
                   <span className="ml-2 text-slate-500 text-xs font-mono">payment_strategy.ts</span>
                 </div>
                 <pre className="text-sm font-mono leading-relaxed overflow-x-auto text-slate-300">
-{<><span className="text-slate-500">{`// Strategy Pattern for Payments`}</span>{'\n'}</>}
+<span className="text-slate-500">// Strategy Pattern</span>{'\n'}
 <span className="text-sky-400">interface</span> <span className="text-emerald-400">PaymentProvider</span> {'{'}{'\n'}
-{'  '}<span className="text-amber-400">charge</span>(amount: number): Promise{'<'}Result{'>'}{'\n'}
-{'  '}<span className="text-amber-400">refund</span>(txId: string): Promise{'<'}Result{'>'}{'\n'}
+{'  '}<span className="text-amber-400">charge</span>(amount): Promise{'\n'}
+{'  '}<span className="text-amber-400">refund</span>(txId): Promise{'\n'}
 {'}'}{'\n'}
 {'\n'}
-<span className="text-sky-400">class</span> <span className="text-emerald-400">MercadoPago</span> <span className="text-sky-400">implements</span> PaymentProvider {'{'}{'\n'}
-{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">charge</span>(amount: number) {'{'}{'\n'}
-{'    '}<span className="text-sky-400">return</span> <span className="text-sky-400">this</span>.api.createPayment(amount){'\n'}
+<span className="text-sky-400">class</span> <span className="text-emerald-400">MercadoPago</span> {'{'}{'\n'}
+{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">charge</span>(amount) {'{'}{'\n'}
+{'    '}<span className="text-sky-400">return this</span>.api.pay(amount){'\n'}
 {'  '}{'}'}{'\n'}
 {'}'}{'\n'}
 {'\n'}
 <span className="text-sky-400">class</span> <span className="text-emerald-400">PaymentService</span> {'{'}{'\n'}
-{'  '}<span className="text-sky-400">constructor</span>(<span className="text-sky-400">private</span> provider: PaymentProvider) {'{'}{'}'}{'\n'}
-{'\n'}
-{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">process</span>(order: Order) {'{'}{'\n'}
-{'    '}<span className="text-sky-400">return this</span>.provider.charge(order.total){'\n'}
+{'  '}<span className="text-sky-400">async</span> <span className="text-amber-400">process</span>(order) {'{'}{'\n'}
+{'    '}<span className="text-sky-400">return this</span>.provider{'\n'}
+{'      '}.charge(order.total){'\n'}
 {'  '}{'}'}{'\n'}
 {'}'}</pre>
               </div>
