@@ -414,8 +414,8 @@ export default function Portfolio() {
         </div>
           
         <div className="space-y-0">
-          {/* Cognativ - White */}
-          <div className="bg-slate-50">
+          {/* Cognativ - Grey */}
+          <div className="bg-slate-200/70">
             <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2025 — {t.present}</p>
@@ -441,8 +441,8 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* 2U - Grey */}
-          <div className="bg-slate-200/70">
+          {/* 2U - White */}
+          <div className="bg-slate-50">
             <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019 — 2025</p>
@@ -469,8 +469,8 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Aluar - White */}
-          <div className="bg-slate-50">
+          {/* Aluar - Grey */}
+          <div className="bg-slate-200/70">
             <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019</p>
@@ -487,8 +487,8 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Fabri S.A. - Grey */}
-          <div className="bg-slate-200/70">
+          {/* Fabri S.A. - White */}
+          <div className="bg-slate-50">
             <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2016 — 2019</p>
