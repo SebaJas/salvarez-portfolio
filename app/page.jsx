@@ -230,7 +230,7 @@ export default function Portfolio() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between">
-          <span className="text-sm sm:text-base font-semibold tracking-wide text-white"><span className="sm:hidden">SA</span><span className="hidden sm:inline">Sebastian Alvarez</span></span>
+          <a href="#top" className="text-sm sm:text-base font-semibold tracking-wide text-white hover:text-sky-400 transition-colors"><span className="sm:hidden">SA</span><span className="hidden sm:inline">Sebastian Alvarez</span></a>
           <div className="flex items-center gap-3 sm:gap-6">
             <a href="#experience" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.experience}</a>
             <a href="#projects" className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors">{t.projects}</a>
@@ -264,7 +264,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero - Light with Code Block */}
-      <section className={`pt-28 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-8 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <section id="top" className={`pt-28 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-8 bg-slate-50 transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
             <div>
