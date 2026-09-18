@@ -25,6 +25,8 @@ const translations = {
     databases: 'Databases',
     cloudInfra: 'Cloud & Infrastructure',
     frontend: 'Frontend',
+    identityAuth: 'Identity & Auth',
+    messaging: 'Messaging',
     eventDrivenArch: 'Event-Driven Architecture',
     client: 'Client',
     apiGateway: 'API Gateway',
@@ -41,6 +43,16 @@ const translations = {
     years: 'years',
     remote: 'Remote',
     
+    // SWARM
+    swarmRole: 'Senior Software Engineer',
+    swarmCompany: 'SWARM Engineering (via ClickIT)',
+    swarmLocation: 'Remote (USA)',
+    swarmDesc1: 'Delivered features end-to-end behind per-client feature flags on a multi-tenant enterprise AI + optimization SaaS, across a Go microservices backend and a Vue single-spa micro-frontend',
+    swarmDesc2: 'Drove architecture consolidation to reduce microservice sprawl with an incremental, stabilize-first (Strangler-Fig) approach',
+    swarmDesc3: 'Led a spike mapping multi-tenant org provisioning, registry, and SAML/JIT routing end-to-end, producing the durable-fix design and scoped implementation tickets',
+    swarmDesc4: 'Diagnosed and resolved production incidents across SSO / identity (Okta OIDC/SAML), tenant isolation, and Couchbase (N1QL) query performance',
+    swarmDesc5: 'Implemented tenant-scoped processing to close a cross-tenant data-exposure class in the notification pipeline, and reviewed security-sensitive access-control changes',
+
     // Cognativ
     cognativRole: 'Senior Software Engineer',
     cognativCompany: 'Cognativ Inc.',
@@ -90,12 +102,14 @@ const translations = {
     keyAchievements: 'Key Achievements',
     achievement1Title: 'Real-Time Analytics Engine',
     achievement1Desc: 'Architected a video analytics engine in Go processing IoT events with sub-100ms latency, integrated with AWS IoT Core and Kafka',
-    achievement2Title: 'E-Commerce Platform',
-    achievement2Desc: "Built Argentina's first vinyl marketplace with multiple payment providers and comprehensive subscription billing",
-    achievement3Title: 'Subscription Billing System',
-    achievement3Desc: 'Designed billing handling 4 plan tiers with trials, proration, grace periods, and webhook processing',
-    achievement4Title: 'CI/CD Infrastructure',
-    achievement4Desc: 'Established pipelines with Buildkite, Jenkins, and GitHub Actions across multiple production projects',
+    achievement2Title: 'Architecture Consolidation & Multi-Tenant SSO',
+    achievement2Desc: 'Led an incremental consolidation of a sprawling microservice platform, and redesigned multi-tenant org provisioning and SAML/JIT identity routing',
+    achievement3Title: 'E-Commerce Platform',
+    achievement3Desc: "Built Argentina's first vinyl marketplace with multiple payment providers and comprehensive subscription billing",
+    achievement4Title: 'Subscription Billing System',
+    achievement4Desc: 'Designed billing handling 4 plan tiers with trials, proration, grace periods, and webhook processing',
+    achievement5Title: 'CI/CD Infrastructure',
+    achievement5Desc: 'Established pipelines with Buildkite, Jenkins, and GitHub Actions across multiple production projects',
     
     // Education
     education: 'Education',
@@ -130,6 +144,8 @@ const translations = {
     databases: 'Bases de Datos',
     cloudInfra: 'Cloud e Infraestructura',
     frontend: 'Frontend',
+    identityAuth: 'Identidad y Autenticación',
+    messaging: 'Mensajería',
     eventDrivenArch: 'Arquitectura Orientada a Eventos',
     client: 'Cliente',
     apiGateway: 'API Gateway',
@@ -146,6 +162,16 @@ const translations = {
     years: 'años',
     remote: 'Remoto',
     
+    // SWARM
+    swarmRole: 'Ingeniero de Software Senior',
+    swarmCompany: 'SWARM Engineering (vía ClickIT)',
+    swarmLocation: 'Remoto (EE.UU.)',
+    swarmDesc1: 'Entregué features de punta a punta detrás de feature flags por cliente en un SaaS empresarial multi-tenant de IA y optimización, sobre un backend de microservicios en Go y un micro-frontend Vue (single-spa)',
+    swarmDesc2: 'Impulsé la consolidación de la arquitectura para reducir la proliferación de microservicios, con un enfoque incremental de estabilizar primero (Strangler-Fig)',
+    swarmDesc3: 'Lideré un spike que mapeó de punta a punta el provisioning de organizaciones multi-tenant, el registry y el ruteo SAML/JIT, produciendo el diseño de la solución de fondo y los tickets de implementación',
+    swarmDesc4: 'Diagnostiqué y resolví incidentes en producción de SSO / identidad (Okta OIDC/SAML), aislamiento entre tenants y performance de queries en Couchbase (N1QL)',
+    swarmDesc5: 'Implementé procesamiento con alcance por tenant para cerrar una clase de exposición de datos entre tenants en el pipeline de notificaciones, y revisé cambios sensibles de control de acceso',
+
     // Cognativ
     cognativRole: 'Ingeniero de Software Senior',
     cognativCompany: 'Cognativ Inc.',
@@ -195,12 +221,14 @@ const translations = {
     keyAchievements: 'Logros Clave',
     achievement1Title: 'Motor de Analytics en Tiempo Real',
     achievement1Desc: 'Arquitecté un motor de video analytics en Go procesando eventos IoT con latencia sub-100ms, integrado con AWS IoT Core y Kafka',
-    achievement2Title: 'Plataforma E-Commerce',
-    achievement2Desc: 'Construí el primer marketplace de vinilos de Argentina con múltiples proveedores de pago y facturación de suscripciones completa',
-    achievement3Title: 'Sistema de Facturación de Suscripciones',
-    achievement3Desc: 'Diseñé facturación manejando 4 niveles de planes con trials, prorrateo, períodos de gracia, y procesamiento de webhooks',
-    achievement4Title: 'Infraestructura CI/CD',
-    achievement4Desc: 'Establecí pipelines con Buildkite, Jenkins y GitHub Actions en múltiples proyectos en producción',
+    achievement2Title: 'Consolidación de Arquitectura y SSO Multi-Tenant',
+    achievement2Desc: 'Lideré la consolidación incremental de una plataforma de microservicios dispersa, y rediseñé el provisioning de organizaciones multi-tenant y el ruteo de identidad SAML/JIT',
+    achievement3Title: 'Plataforma E-Commerce',
+    achievement3Desc: 'Construí el primer marketplace de vinilos de Argentina con múltiples proveedores de pago y facturación de suscripciones completa',
+    achievement4Title: 'Sistema de Facturación de Suscripciones',
+    achievement4Desc: 'Diseñé facturación manejando 4 niveles de planes con trials, prorrateo, períodos de gracia, y procesamiento de webhooks',
+    achievement5Title: 'Infraestructura CI/CD',
+    achievement5Desc: 'Establecí pipelines con Buildkite, Jenkins y GitHub Actions en múltiples proyectos en producción',
     
     // Education
     education: 'Educación',
@@ -389,23 +417,31 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
                 </div>
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.architecture}</h3>
-                  <p className="text-slate-300">CQRS, DDD, Hexagonal, Microservices, Event-Driven</p>
+                  <p className="text-slate-300">CQRS, DDD, Hexagonal, Microservices, Event-Driven, Multi-tenancy</p>
                 </div>
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.backend}</h3>
-                  <p className="text-slate-300">Fiber, NestJS, Django, Laravel, Node.js</p>
+                  <p className="text-slate-300">Fiber, Gin, NestJS, Django, Laravel, Node.js</p>
                 </div>
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.databases}</h3>
-                  <p className="text-slate-300">PostgreSQL, MySQL, DynamoDB, Redis, Snowflake</p>
+                  <p className="text-slate-300">PostgreSQL, Couchbase, MSSQL, MySQL, DynamoDB, Redis, Snowflake</p>
                 </div>
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.cloudInfra}</h3>
-                  <p className="text-slate-300">AWS (S3, Lambda, IoT Core, EC2, SNS, SQS), Docker, Kubernetes, Kafka</p>
+                  <p className="text-slate-300">AWS (S3, Lambda, IoT Core, EC2, SNS, SQS), Azure, Docker, Kubernetes, Flux CD (GitOps)</p>
                 </div>
                 <div>
                   <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.frontend}</h3>
-                  <p className="text-slate-300">React, Next.js, Tailwind CSS, Zustand</p>
+                  <p className="text-slate-300">React, Next.js, Vue (single-spa), Tailwind CSS, Zustand</p>
+                </div>
+                <div>
+                  <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.identityAuth}</h3>
+                  <p className="text-slate-300">Okta (OIDC/SAML), JWT, JWE, RBAC</p>
+                </div>
+                <div>
+                  <h3 className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t.messaging}</h3>
+                  <p className="text-slate-300">Kafka, NSQ, Redis (bull queues)</p>
                 </div>
               </div>
             </div>
@@ -420,8 +456,35 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
         </div>
           
         <div className="space-y-0">
-          {/* Cognativ - Grey */}
+          {/* SWARM - Grey */}
           <div className="bg-slate-200/70">
+            <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
+              <div>
+                <p className="text-sm text-slate-600 font-medium">2026 — {t.present}</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-medium mb-1">{t.swarmRole}</h3>
+                <p className="text-sky-700 mb-4">{t.swarmCompany} · {t.swarmLocation}</p>
+                <ul className="space-y-2 text-slate-700 text-sm leading-relaxed">
+                  <li>{t.swarmDesc1}</li>
+                  <li>{t.swarmDesc2}</li>
+                  <li>{t.swarmDesc3}</li>
+                  <li>{t.swarmDesc4}</li>
+                  <li>{t.swarmDesc5}</li>
+                </ul>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {['Go', 'Gin', 'Python', 'Vue', 'Couchbase', 'NSQ', 'Okta', 'Kubernetes', 'Flux CD'].map((tech) => (
+                    <span key={tech} className="text-xs text-sky-700 bg-sky-50 border border-sky-100 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Cognativ - White */}
+          <div className="bg-slate-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2025 — {t.present}</p>
@@ -447,8 +510,8 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
             </div>
           </div>
 
-          {/* 2U - White */}
-          <div className="bg-slate-50">
+          {/* 2U - Grey */}
+          <div className="bg-slate-200/70">
             <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019 — 2025</p>
@@ -475,8 +538,8 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
             </div>
           </div>
 
-          {/* Aluar - Grey */}
-          <div className="bg-slate-200/70">
+          {/* Aluar - White */}
+          <div className="bg-slate-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2019</p>
@@ -493,8 +556,8 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
             </div>
           </div>
 
-          {/* Fabri S.A. - White */}
-          <div className="bg-slate-50">
+          {/* Fabri S.A. - Grey */}
+          <div className="bg-slate-200/70">
             <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10 grid md:grid-cols-[200px_1fr] gap-3 md:gap-8">
               <div>
                 <p className="text-sm text-slate-600 font-medium">2016 — 2019</p>
@@ -717,6 +780,10 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
             <div className="border-l-2 border-sky-500 pl-6">
               <h3 className="font-medium mb-2 text-slate-900">{t.achievement4Title}</h3>
               <p className="text-sm text-slate-600">{t.achievement4Desc}</p>
+            </div>
+            <div className="border-l-2 border-sky-500 pl-6">
+              <h3 className="font-medium mb-2 text-slate-900">{t.achievement5Title}</h3>
+              <p className="text-sm text-slate-600">{t.achievement5Desc}</p>
             </div>
           </div>
         </div>
