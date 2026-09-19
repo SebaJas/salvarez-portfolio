@@ -1,18 +1,17 @@
 import Link from 'next/link';
 import { getSections } from '@/lib/posts';
+import { BLOG_TITLE, BLOG_INTRO } from '@/lib/sections';
 import PostCard from './PostCard';
 
 export const metadata = {
   title: 'Blog | Sebastian Alvarez',
-  description:
-    'Notes on distributed systems, Go, and the production bugs worth writing down — pagination, identity, data integrity.',
+  description: BLOG_INTRO,
   alternates: { canonical: '/blog' },
   openGraph: {
     type: 'website',
     url: 'https://salvarez-portfolio.vercel.app/blog',
     title: 'Blog | Sebastian Alvarez',
-    description:
-      'Notes on distributed systems, Go, and the production bugs worth writing down.',
+    description: BLOG_INTRO,
   },
 };
 
@@ -39,18 +38,15 @@ export default function BlogIndex() {
       </nav>
 
       <div className={`${width} mx-auto px-4 sm:px-8 py-16 sm:py-24`}>
-        <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">Blog</p>
+        <header className={grouped ? 'pb-10 sm:pb-12 border-b border-slate-200' : ''}>
+          <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">Blog</p>
 
-        {!grouped && sections.length > 0 && (
           <h1 className="mt-4 text-3xl sm:text-4xl font-light tracking-tight text-slate-900">
-            {sections[0].title}
+            {grouped ? BLOG_TITLE : sections[0]?.title ?? BLOG_TITLE}
           </h1>
-        )}
 
-        <p className="mt-5 text-slate-600 leading-relaxed max-w-xl">
-          Mostly distributed systems in Go: the failures that do not crash, the ones that answer
-          the wrong question quietly, and what they turned out to be underneath.
-        </p>
+          <p className="mt-5 text-slate-600 leading-relaxed max-w-3xl">{BLOG_INTRO}</p>
+        </header>
 
         {sections.length === 0 && <p className="mt-12 text-slate-500">No posts yet.</p>}
 
@@ -64,7 +60,7 @@ export default function BlogIndex() {
           ))}
 
         {grouped && (
-          <div className="mt-14 sm:mt-16 grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14 items-start">
+          <div className="mt-12 sm:mt-14 grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14 items-start">
             {sections.map((section) => (
               <div key={section.slug}>
                 <p className="text-xs text-sky-600 tracking-widest uppercase font-medium">
