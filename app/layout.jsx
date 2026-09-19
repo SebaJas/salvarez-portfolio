@@ -1,23 +1,25 @@
 import './globals.css';
 
 export const metadata = {
+  metadataBase: new URL('https://salvarez-portfolio.vercel.app'),
   title: 'Sebastian Alvarez | Senior Software Engineer',
-  description: 'Senior Software Engineer with 8+ years building production systems at scale. Specialized in Go and distributed architectures using CQRS, DDD, and event-driven design.',
-  keywords: ['Software Engineer', 'Go', 'Golang', 'Backend Developer', 'Distributed Systems', 'CQRS', 'DDD', 'Argentina'],
+  description: 'Senior Software Engineer with 8+ years building production distributed systems in Go. Event-driven architecture (CQRS, DDD), multi-tenant SaaS, SSO / identity and GitOps delivery on Kubernetes.',
+  keywords: ['Software Engineer', 'Go', 'Golang', 'Backend Developer', 'Distributed Systems', 'CQRS', 'DDD', 'Multi-tenant SaaS', 'Kubernetes', 'Argentina'],
+  alternates: { canonical: '/' },
   authors: [{ name: 'Sebastian Alvarez' }],
   creator: 'Sebastian Alvarez',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://sebastianalvarez.dev',
+    url: 'https://salvarez-portfolio.vercel.app',
     title: 'Sebastian Alvarez | Senior Software Engineer',
-    description: 'Senior Software Engineer with 8+ years building production systems at scale. Specialized in Go and distributed architectures.',
+    description: 'Senior Software Engineer with 8+ years building production distributed systems in Go. Event-driven architecture (CQRS, DDD), multi-tenant SaaS, SSO / identity and GitOps delivery on Kubernetes.',
     siteName: 'Sebastian Alvarez Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sebastian Alvarez | Senior Software Engineer',
-    description: 'Senior Software Engineer with 8+ years building production systems at scale.',
+    description: 'Senior Software Engineer with 8+ years building production distributed systems in Go. Event-driven architecture (CQRS, DDD), multi-tenant SaaS, SSO / identity and GitOps delivery on Kubernetes.',
   },
   robots: {
     index: true,
@@ -29,9 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#09090b" />
       </head>
       <body className="antialiased">
