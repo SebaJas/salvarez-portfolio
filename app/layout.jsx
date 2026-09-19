@@ -25,6 +25,11 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  // Ownership proof for Google Search Console (URL-prefix property). Public by
+  // design: it ships in the HTML of every page. Removing it un-verifies the site.
+  verification: {
+    google: 'BG-9Qr9AUFM18L9z_zBQEIT2xRgbJJC7lZaZ4sav1Q0',
+  },
 };
 
 export default function RootLayout({ children }) {
