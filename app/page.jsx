@@ -7,7 +7,7 @@ const translations = {
     // Navigation
     experience: 'Experience',
     projects: 'Projects',
-    writing: 'Writing',
+    writing: 'Blog',
     contact: 'Contact',
     
     // Hero
@@ -130,7 +130,7 @@ const translations = {
     // Navigation
     experience: 'Experiencia',
     projects: 'Proyectos',
-    writing: 'Escritos',
+    writing: 'Blog',
     contact: 'Contacto',
     
     // Hero
