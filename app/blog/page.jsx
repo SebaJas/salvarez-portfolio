@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { getAllPosts, formatDate } from '@/lib/posts';
 
 export const metadata = {
-  title: 'Writing | Sebastian Alvarez',
+  title: 'Blog | Sebastian Alvarez',
   description:
     'Notes on distributed systems, Go, and the production bugs worth writing down — pagination, identity, data integrity.',
   alternates: { canonical: '/blog' },
   openGraph: {
     type: 'website',
     url: 'https://salvarez-portfolio.vercel.app/blog',
-    title: 'Writing | Sebastian Alvarez',
+    title: 'Blog | Sebastian Alvarez',
     description:
       'Notes on distributed systems, Go, and the production bugs worth writing down.',
   },
@@ -32,7 +32,7 @@ export default function BlogIndex() {
       </nav>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-8 py-16 sm:py-24">
-        <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">Writing</p>
+        <p className="text-sm text-sky-600 tracking-widest uppercase font-medium">Blog</p>
         <h1 className="mt-4 text-3xl sm:text-4xl font-light tracking-tight text-slate-900">
           Production bugs worth writing down
         </h1>
@@ -53,6 +53,11 @@ export default function BlogIndex() {
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
                   <span className="text-slate-300">·</span>
                   <span>{post.readingMinutes} min read</span>
+                  {post.draft && (
+                    <span className="text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded font-medium">
+                      Draft — not published
+                    </span>
+                  )}
                 </div>
                 <h2 className="mt-2 text-xl sm:text-2xl font-medium text-slate-900 group-hover:text-sky-700 transition-colors">
                   {post.title}

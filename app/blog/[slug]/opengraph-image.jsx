@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export default async function PostOpenGraphImage({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
-  const title = post?.title ?? 'Writing';
+  const title = post?.title ?? 'Blog';
 
   return new ImageResponse(
     (
@@ -28,7 +28,7 @@ export default async function PostOpenGraphImage({ params }) {
         }}
       >
         <div style={{ display: 'flex', fontSize: 26, letterSpacing: 6, color: '#38bdf8' }}>
-          WRITING
+          BLOG
         </div>
 
         <div

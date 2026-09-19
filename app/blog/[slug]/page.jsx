@@ -46,7 +46,7 @@ export default async function BlogPost({ params }) {
             Sebastian Alvarez
           </Link>
           <Link href="/blog" className="text-xs sm:text-sm text-slate-300 hover:text-sky-400 transition-colors">
-            ← All writing
+            ← All posts
           </Link>
         </div>
       </nav>
@@ -77,7 +77,7 @@ export default async function BlogPost({ params }) {
 
         <footer className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <Link href="/blog" className="text-sky-700 hover:text-sky-900 transition-colors">
-            ← All writing
+            ← All posts
           </Link>
           <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
             Portfolio
