@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLanguage } from './LanguageProvider';
 
 const translations = {
   en: {
@@ -253,7 +254,7 @@ const translations = {
 
 export default function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [lang, setLang] = useState('en');
+  const { lang, setLang } = useLanguage();
   const t = translations[lang];
 
   useEffect(() => {

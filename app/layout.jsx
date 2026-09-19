@@ -1,4 +1,5 @@
 import './globals.css';
+import { LanguageProvider } from './LanguageProvider';
 
 export const metadata = {
   metadataBase: new URL('https://salvarez-portfolio.vercel.app'),
@@ -40,7 +41,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#09090b" />
       </head>
       <body className="antialiased">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
