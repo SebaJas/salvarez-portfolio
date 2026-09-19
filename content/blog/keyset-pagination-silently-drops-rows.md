@@ -1,6 +1,7 @@
 ---
 title: "Keyset pagination drops rows when the sort field is NULL"
 description: "A pagination bug that returns an empty page with hasMore false and no error, so the caller believes it received everything. The cause is three-valued logic, and the fix is a null-aware predicate."
+section: "debugging"
 date: "2026-09-18"
 tags: ["Pagination", "SQL", "N1QL", "Data integrity"]
 ---

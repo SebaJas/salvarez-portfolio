@@ -1,6 +1,7 @@
 ---
 title: "Your error handler is deleting the evidence"
 description: "A production list went empty with no deploy behind it. The database had sent a precise diagnostic; one line of error handling threw it away, and the team spent the morning ranking suspects that were all wrong."
+section: "debugging"
 date: "2026-09-19"
 tags: ["Debugging", "Observability", "Couchbase", "SQL"]
 ---

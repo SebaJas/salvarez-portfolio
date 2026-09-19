@@ -1,6 +1,7 @@
 ---
 title: "Your worker pool just threw away Kafka's ordering guarantee"
 description: "Kafka orders messages within a partition. The moment you fan them out to a pool of goroutines, that ordering is gone — and the fix is not a mutex."
+section: "debugging"
 date: "2026-09-19"
 tags: ["Go", "Kafka", "Concurrency", "Distributed systems"]
 ---
