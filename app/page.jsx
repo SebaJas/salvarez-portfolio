@@ -14,7 +14,7 @@ const translations = {
     heroTitle1: 'Building',
     heroTitle2: 'Production Systems',
     heroTitle3: 'at scale.',
-    heroDescription: '8+ years of experience in <strong>Go</strong> and distributed architectures. Specialized in <strong>CQRS</strong>, <strong>DDD</strong>, and event-driven design. Based in Argentina, working remotely with US companies since 2019.',
+    heroDescription: '8+ years building production distributed systems in <strong>Go</strong>. Specialized in <strong>CQRS</strong>, <strong>DDD</strong> and event-driven design, with hands-on work in real-time event processing, <strong>multi-tenant SaaS</strong>, SSO / identity, and GitOps delivery on Kubernetes. Based in Argentina, working remotely with US companies since 2019.',
     location: 'Merlo, San Luis, Argentina',
     
     // Technical Expertise
@@ -27,7 +27,7 @@ const translations = {
     frontend: 'Frontend',
     identityAuth: 'Identity & Auth',
     messaging: 'Messaging',
-    eventDrivenArch: 'Event-Driven Architecture',
+    eventDrivenArch: 'Event-Driven · Multi-Tenant',
     client: 'Client',
     apiGateway: 'API Gateway',
     messageBroker: 'Message Broker',
@@ -36,6 +36,7 @@ const translations = {
     query: 'Query',
     readService: 'Read Service',
     dataStore: 'Data Store',
+    runsOn: 'Runs on',
     
     // Experience
     experienceTitle: 'Experience',
@@ -110,6 +111,8 @@ const translations = {
     achievement4Desc: 'Designed billing handling 4 plan tiers with trials, proration, grace periods, and webhook processing',
     achievement5Title: 'CI/CD Infrastructure',
     achievement5Desc: 'Established pipelines with Buildkite, Jenkins, and GitHub Actions across multiple production projects',
+    achievement6Title: 'Keyset Pagination at Scale',
+    achievement6Desc: 'Moved paginated endpoints from offset to keyset behind a per-client flag, and fixed a silent data-loss bug that dropped rows when the sort field was NULL',
     
     // Education
     education: 'Education',
@@ -133,7 +136,7 @@ const translations = {
     heroTitle1: 'Construyendo',
     heroTitle2: 'Sistemas Productivos',
     heroTitle3: 'a escala.',
-    heroDescription: '+8 años de experiencia en <strong>Go</strong> y arquitecturas distribuidas. Especializado en <strong>CQRS</strong>, <strong>DDD</strong>, y diseño orientado a eventos. Basado en Argentina, trabajando remotamente con empresas de EE.UU. desde 2019.',
+    heroDescription: '+8 años construyendo sistemas distribuidos en producción con <strong>Go</strong>. Especializado en <strong>CQRS</strong>, <strong>DDD</strong> y diseño orientado a eventos, con trabajo hands-on en procesamiento de eventos en tiempo real, <strong>SaaS multi-tenant</strong>, SSO / identidad y delivery GitOps sobre Kubernetes. Basado en Argentina, trabajando remotamente con empresas de EE.UU. desde 2019.',
     location: 'Merlo, San Luis, Argentina',
     
     // Technical Expertise
@@ -146,7 +149,7 @@ const translations = {
     frontend: 'Frontend',
     identityAuth: 'Identidad y Autenticación',
     messaging: 'Mensajería',
-    eventDrivenArch: 'Arquitectura Orientada a Eventos',
+    eventDrivenArch: 'Orientada a Eventos · Multi-Tenant',
     client: 'Cliente',
     apiGateway: 'API Gateway',
     messageBroker: 'Message Broker',
@@ -155,6 +158,7 @@ const translations = {
     query: 'Consulta',
     readService: 'Servicio de Lectura',
     dataStore: 'Base de Datos',
+    runsOn: 'Corre sobre',
     
     // Experience
     experienceTitle: 'Experiencia',
@@ -229,6 +233,8 @@ const translations = {
     achievement4Desc: 'Diseñé facturación manejando 4 niveles de planes con trials, prorrateo, períodos de gracia, y procesamiento de webhooks',
     achievement5Title: 'Infraestructura CI/CD',
     achievement5Desc: 'Establecí pipelines con Buildkite, Jenkins y GitHub Actions en múltiples proyectos en producción',
+    achievement6Title: 'Paginación Keyset a Escala',
+    achievement6Desc: 'Migré endpoints paginados de offset a keyset detrás de un flag por cliente, y corregí un bug de pérdida silenciosa de datos que descartaba filas cuando el campo de orden era NULL',
     
     // Education
     education: 'Educación',
@@ -338,7 +344,11 @@ export default function Portfolio() {
 {'\n'}
 <span className="text-emerald-400">$</span> cat stack.txt{'\n'}
 <span className="text-sky-400">Go</span> · CQRS · DDD · Event-Driven{'\n'}
-<span className="text-sky-400">AWS</span> · Kafka · PostgreSQL · Docker{'\n'}
+<span className="text-sky-400">AWS</span> · Azure · Kubernetes · GitOps{'\n'}
+<span className="text-sky-400">PostgreSQL</span> · Couchbase · Kafka · NSQ{'\n'}
+{'\n'}
+<span className="text-emerald-400">$</span> cat focus.txt{'\n'}
+<span className="text-slate-400">Multi-tenant SaaS · SSO / Identity</span>{'\n'}
 {'\n'}
 <span className="text-emerald-400">$</span> uptime{'\n'}
 <span className="text-amber-400">8+</span> years building systems at scale{'\n'}
@@ -369,17 +379,17 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
                   <div className="flex items-center justify-center gap-4">
                     <div className="bg-slate-700 px-4 py-3 rounded-lg border border-slate-600 text-center">
                       <p className="text-xs text-slate-400 mb-1">{t.client}</p>
-                      <p className="text-sm text-slate-200 font-medium">Next.js</p>
+                      <p className="text-sm text-slate-200 font-medium">Next.js · Vue</p>
                     </div>
                     <span className="text-sky-400 text-lg">→</span>
                     <div className="bg-sky-900/50 px-4 py-3 rounded-lg border border-sky-700 text-center">
                       <p className="text-xs text-sky-400 mb-1">{t.apiGateway}</p>
-                      <p className="text-sm text-slate-200 font-medium">Go / Fiber</p>
+                      <p className="text-sm text-slate-200 font-medium">Go</p>
                     </div>
                     <span className="text-sky-400 text-lg">→</span>
                     <div className="bg-emerald-900/50 px-4 py-3 rounded-lg border border-emerald-700 text-center">
                       <p className="text-xs text-emerald-400 mb-1">{t.messageBroker}</p>
-                      <p className="text-sm text-slate-200 font-medium">Kafka</p>
+                      <p className="text-sm text-slate-200 font-medium">Kafka · NSQ</p>
                     </div>
                   </div>
 
@@ -401,9 +411,18 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
                     <span className="text-sky-400 text-lg">→</span>
                     <div className="bg-amber-900/50 px-4 py-3 rounded-lg border border-amber-700 text-center">
                       <p className="text-xs text-amber-400 mb-1">{t.dataStore}</p>
-                      <p className="text-sm text-slate-200 font-medium">PostgreSQL</p>
+                      <p className="text-sm text-slate-200 font-medium">PostgreSQL · Couchbase</p>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-8 pt-5 border-t border-slate-700 flex flex-wrap items-center justify-center gap-2">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider mr-1">{t.runsOn}</span>
+                  {['Multi-tenant', 'Okta SSO', 'Kubernetes · GitOps'].map((item) => (
+                    <span key={item} className="text-xs text-slate-300 bg-slate-700/50 border border-slate-600 px-2 py-1 rounded">
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -784,6 +803,10 @@ Argentina · Remote since <span className="text-amber-400">2019</span>{'\n'}
             <div className="border-l-2 border-sky-500 pl-6">
               <h3 className="font-medium mb-2 text-slate-900">{t.achievement5Title}</h3>
               <p className="text-sm text-slate-600">{t.achievement5Desc}</p>
+            </div>
+            <div className="border-l-2 border-sky-500 pl-6">
+              <h3 className="font-medium mb-2 text-slate-900">{t.achievement6Title}</h3>
+              <p className="text-sm text-slate-600">{t.achievement6Desc}</p>
             </div>
           </div>
         </div>
