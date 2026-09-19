@@ -76,3 +76,124 @@ section:nth-child(6) { animation-delay: 0.3s; }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* ---------------------------------------------------------------- */
+/* Blog: article body. Written out rather than pulled from a plugin  */
+/* so the type scale matches the rest of the site.                   */
+/* ---------------------------------------------------------------- */
+
+.prose {
+  color: #334155;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.prose > * + * { margin-top: 1.5rem; }
+
+.prose h2 {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.prose h3 {
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.prose strong { font-weight: 600; color: #0f172a; }
+.prose em { color: #0f172a; }
+
+.prose a {
+  color: #0369a1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #bae6fd;
+}
+.prose a:hover { text-decoration-color: #0369a1; }
+
+.prose ul, .prose ol { padding-left: 1.5rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.5rem; }
+.prose li::marker { color: #94a3b8; }
+
+.prose blockquote {
+  padding-left: 1.25rem;
+  border-left: 2px solid #38bdf8;
+  color: #475569;
+  font-style: italic;
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  padding: 0.15em 0.4em;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Code blocks: same dark slate as the site's dark sections */
+.prose pre {
+  padding: 1.25rem 1.25rem;
+  border-radius: 0.75rem;
+  background: #0f172a;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.prose pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #e2e8f0;
+}
+
+.prose hr { border: 0; border-top: 1px solid #e2e8f0; }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.prose th, .prose td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+.prose th { color: #0f172a; font-weight: 600; }
+
+/* highlight.js tokens, mapped onto the sky/slate palette */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section { color: #7dd3fc; }
+
+.hljs-string,
+.hljs-attr,
+.hljs-addition { color: #86efac; }
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet { color: #fcd34d; }
+
+.hljs-title,
+.hljs-name,
+.hljs-built_in { color: #38bdf8; }
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta { color: #64748b; font-style: italic; }
+
+.hljs-type,
+.hljs-variable,
+.hljs-template-variable { color: #f0abfc; }
+
+.hljs-deletion { color: #fca5a5; }

@@ -7,6 +7,7 @@ const translations = {
     // Navigation
     experience: 'Experience',
     projects: 'Projects',
+    writing: 'Writing',
     contact: 'Contact',
     
     // Hero
@@ -129,6 +130,7 @@ const translations = {
     // Navigation
     experience: 'Experiencia',
     projects: 'Proyectos',
+    writing: 'Escritos',
     contact: 'Contacto',
     
     // Hero
@@ -268,6 +270,7 @@ export default function Portfolio() {
           <div className="flex items-center gap-3 sm:gap-6">
             <a href="#experience" className="text-xs sm:text-sm text-white hover:text-sky-400 transition-colors">{t.experience}</a>
             <a href="#projects" className="text-xs sm:text-sm text-white hover:text-sky-400 transition-colors">{t.projects}</a>
+            <a href="/blog" className="text-xs sm:text-sm text-white hover:text-sky-400 transition-colors">{t.writing}</a>
             <a href="#contact" className="text-xs sm:text-sm text-sky-400 hover:text-sky-300 transition-colors font-medium">{t.contact}</a>
 
             {/* Language Toggle */}
