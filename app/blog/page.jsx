@@ -23,6 +23,9 @@ export default function BlogIndex() {
   // side, so the second section is visible without scrolling past the first.
   const grouped = sections.length > 1;
   const width = grouped ? 'max-w-6xl' : 'max-w-3xl';
+  // A third section would otherwise wrap alone onto a second row. Full class
+  // strings, not interpolated, so Tailwind's scanner picks them up.
+  const columns = sections.length > 2 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2';
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -60,7 +63,7 @@ export default function BlogIndex() {
           ))}
 
         {grouped && (
-          <div className="mt-12 sm:mt-14 grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14 items-start">
+          <div className={`mt-12 sm:mt-14 grid ${columns} gap-x-12 lg:gap-x-16 gap-y-14 items-start`}>
             {sections.map((section) => (
               <div key={section.slug}>
                 <p className="text-xs text-sky-600 tracking-widest uppercase font-medium">
