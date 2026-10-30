@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import { formatDate } from '@/lib/posts';
 
-// Shared by the index and the per-section pages. `compact` drops the description
-// so the cards stay readable inside the narrower columns of the section grid.
-export default function PostCard({ post, compact = false }) {
+// Used by the single-section index and the per-section pages.
+export default function PostCard({ post }) {
   return (
     <article className="border-b border-slate-200 py-6">
       <Link href={`/blog/${post.slug}`} className="group block">
@@ -22,11 +21,9 @@ export default function PostCard({ post, compact = false }) {
           {post.title}
         </h3>
 
-        {!compact && (
-          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-            {post.description}
-          </p>
-        )}
+        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+          {post.description}
+        </p>
 
         <div className="mt-3 flex flex-wrap gap-2">
           {post.tags.map((tag) => (
