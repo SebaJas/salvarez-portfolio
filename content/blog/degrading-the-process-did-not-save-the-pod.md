@@ -203,16 +203,87 @@ does not page anyone.
 The alerting rule belongs to a teammate who owns platform alerting: any series
 at 0 for two minutes. The service produces a fact; alerting decides who to wake.
 
+## The degrade that would not let go
+
+A few days later the credential was rotated. The tunnel came up — the sidecar
+logged the forward, so the new credential worked — and the on-prem queries kept
+failing. Seven minutes after the tunnel was up, they were still failing.
+
+Two timestamps in the logs told the whole story. The gateway probed its SQL
+connection at boot, got `connection refused`, and entered degraded mode. The
+tunnel, which takes several seconds to authenticate and negotiate, finished
+coming up **three seconds later**.
+
+A startup race, and on its own a harmless one. What turned it into an outage was
+a weakness I had already written down as a known cost: the degrade was decided
+once, at startup, and never revisited. The connection stayed `nil` for the life
+of the process. A database that was missing for three seconds was treated as
+missing forever.
+
+And the documented recovery, restart the pod, re-runs the race. The image is
+distroless, so there was no shell to restart only the gateway's process either.
+
+Here is the part that stung. Before the degrade existed, this same race would
+have crashed the process, the container would have restarted, and the second
+boot would have found the tunnel up. The old failure was ugly, but it corrected
+itself. **Teaching the process to survive a missing dependency had turned a
+self-healing crash into a stuck state.**
+
+## A second race was hiding the first
+
+The same pod had another startup race, against the service mesh. The gateway
+can start before Istio's proxy is ready, so its first attempt to reach the
+document database has no network, times out, and panics. The container restarts
+once, and connects.
+
+That panic had been quietly curing the SQL race. When it fired, only the
+gateway's container restarted, and its second boot found both sidecars up. The
+stuck degrade only showed on the boots where the document database won its race
+and SQL lost its own.
+
+So the tidy fix for the mesh race, one annotation that holds the app until the
+proxy is ready, would on its own have removed that accidental recovery and made
+the stuck state *more* frequent. It also would not have helped SQL at all: that
+traffic goes to `localhost`, to the VPN sidecar, which the mesh knows nothing
+about. The two fixes had to go together, and the SQL one was not optional.
+
+## Recovery is part of the degrade
+
+The fix makes the degrade end. When a connection is marked unavailable, the
+functions that hand it out re-probe it: reopen with the stored configuration,
+swap it in and clear the marker if it connects. A cooldown of fifteen seconds,
+a single attempt in flight, and the network I/O outside the lock, so a long
+outage does not turn every request into a reconnect storm.
+
+It took two iterations, because there were two resolvers for the same database.
+One went through the pool; the other, used on single-tenant deployments, read a
+global that had been cached as `nil` at boot. The first version reconnected the
+pool, and the queries still failed. It is the same lesson as the nil check
+earlier: a degraded dependency has to be handled on *every* path that reaches
+it, and there is always one more path than you think.
+
+Deployed to that environment, it behaved exactly as intended: the new pod lost
+the race at boot, degraded, and healed itself on the first query.
+
+Then the next production image went out, the pod lost the race again, and sat
+idle overnight. Re-probing on access needs access. With no queries, nothing
+re-probed, the connection stayed degraded, and the newly wired alert fired every
+hour about a database that was perfectly reachable. One query cleared it. The
+lasting fix is a background loop that re-probes degraded connections every
+thirty seconds, reusing the same cooldown, with its warning throttled so a long
+outage does not flood the logs.
+
+The mesh race got a bounded retry around the document database's init: every
+two seconds, for up to a minute, and a real outage past that budget still
+panics as before. I chose code over the mesh annotation so the fix travels with
+the image to every environment.
+
 ## What I would want a reviewer to push back on
 
-Most of this shipped: the degrade is running in production behind its flag, and
-so is the sidecar that no longer exits. The metric is merged but not yet
-deployed, and its alert is not wired, so today a degradation is still found by a
-customer report or by someone looking. The honest list of what is still weak:
-
-**Recovery needs a restart.** Reconnecting was out of scope: the degrade is
-decided at startup, so the gauge reflects the pod at boot and will not flip on
-its own. After the credential is rotated, someone has to delete the pod.
+Most of this shipped: the degrade, the on-access re-probe and the sidecar that
+no longer exits are running in production, and so are the metric and its alert.
+The background re-probe and the mesh retry are merged and waiting for the next
+production image. The honest list of what is still weak:
 
 **Not every caller goes through the gateway.** During the production check, a
 data-preparation step hung instead of failing fast, and the gateway logged no
@@ -220,9 +291,11 @@ SQL attempt at all: that flow reaches the data by another path. Degrading one
 service only makes promises for the requests that pass through it.
 
 **An idle sidecar hides a dead tunnel.** Keeping the pod ready is the point, and
-it also removes the loud symptom that used to announce the problem. Without the
-metric and its alert, "nothing is crashlooping" can now coexist with "a
-customer's data has been unreachable for days".
+it also removes the loud symptom that used to announce the problem. The metric
+and its alert are now the only thing between "nothing is crashlooping" and "a
+customer's data has been unreachable for days" — and the alert's first real
+firing was about a database that was reachable. Correct about the process,
+wrong about the world, and that is how alerts stop being trusted.
 
 **Nobody owns the credential.** This is the actual root cause, and none of the
 above touches it. An owner and an expiry alert were requested after the first
@@ -234,6 +307,11 @@ incident. They did not exist when it happened again.
 feature can live without a database once it is running, refusing to boot
 without it turns a partial outage into a total one. Decide per dependency, not
 per service, and let only the truly required ones be fatal.
+
+**A degrade has to be able to end.** A crash restarts; a degrade, by design,
+does not. If the dependency can come back at runtime, the code has to let it
+back in — or a three-second race at boot becomes an outage that lasts until
+someone restarts the pod, and the restart runs the race again.
 
 **Readiness means "send me traffic", not "everything I touch is healthy".** A
 probe that measures a remote system gives that system a veto over your pod, and
